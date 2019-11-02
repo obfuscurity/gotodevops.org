@@ -2,7 +2,7 @@
   <a :href="conference.url">
     <div class="conference row">
       <div class="col-12">
-        <div class="name">{{ conference.name }}</div>
+        <div class="name">{{ conference.name }} <span class="goto-symbol">&raquo;</span></div>
       </div>
       <div class="col-12">
         <div class="location">{{conference.location.city }}, {{ conference.location.country}}</div>
@@ -15,28 +15,28 @@
       </div>
       <div class="col-3 col-md-3 weather">
         <div class="weather">
-          <font-awesome-icon v-if="conference.temperature.celsius < 10" icon="snowflake" :style="{ color: '#3f5167' }"
+          <font-awesome-icon v-show="conference.temperature.celsius < 10" icon="snowflake" :style="{ color: '#3f5167' }"
                              class="mr-1"/>
-          <font-awesome-icon v-if="conference.temperature.celsius >= 10 && conference.temperature.celsius < 20"
+          <font-awesome-icon v-show="conference.temperature.celsius >= 10 && conference.temperature.celsius < 20"
                              icon="cloud" :style="{ color: '#3f5167' }" class="mr-1"/>
-          <font-awesome-icon v-if="conference.temperature.celsius >= 20" icon="umbrella-beach"
+          <font-awesome-icon v-show="conference.temperature.celsius >= 20" icon="umbrella-beach"
                              :style="{ color: '#3f5167' }" class="mr-1"/>
           {{ conference.temperature.celsius }}℃
         </div>
       </div>
       <div class="col-4 col-md-3 pl-0">
         <div class="cost float-right">
-          <div v-if="conference.cost === 0">FREE</div>
-          <div v-if="conference.cost === 1">
-            < $300 / DAY
+          <div v-show="conference.cost === 0">FREE</div>
+          <div v-show="conference.cost === 1">
+            &lt; $300 / DAY
           </div>
-          <div v-if="conference.cost === 2">
-            < $600 / DAY
+          <div v-show="conference.cost === 2">
+            &lt; $600 / DAY
           </div>
-          <div v-if="conference.cost === 3">
+          <div v-show="conference.cost === 3">
             > $600 / DAY
           </div>
-          <div v-if="conference.cost === 'unknown'">
+          <div v-show="conference.cost === 'unknown'">
             <font-awesome-icon :icon="['far', 'question-circle']"/>
           </div>
         </div>
@@ -91,6 +91,14 @@
     padding-bottom: 10px;
   }
 
+  .goto-symbol {
+    display: none;
+  }
+
+  .conference:hover .goto-symbol {
+    display: inline;
+  }
+
   .name {
     font-weight: 500;
     font-size: 19px;
@@ -117,14 +125,12 @@
 
   a {
     text-decoration: none;
-    text-underline: none;
     color: #333;
     display: block;
   }
 
   a:hover {
     text-decoration: none;
-    text-underline: none;
   }
 
   hr {

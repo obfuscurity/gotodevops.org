@@ -7,28 +7,23 @@ module.exports = {
   ** Headers of the page
   */
   head: {
-    title: "List Of DevOps Conferences In 2019",
+    title: "List Of DevOps Conferences In 2019 / 2020",
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.png' },
       ],
     meta: [
       { charset: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
+      { name: "google-site-verification", content: "-vXHtXbcyvgpc0ozZbgAgosriGOjsII3rolId9kZeCo" },
       { hid: "description", name: "description", content: "Find your next DevOps conference in 2019 from the most comprehensive list, maintained by a community of DevOps professionals. DevOps Conferences in USA, Europe, Asia and Australia &raquo;" }
     ]
   },
 
   /*
-  ** Customize the progress-bar color
-  */
-  loading: { color: "#fff" },
-
-  /*
   ** Global CSS
   */
   css: [
-    "@fortawesome/fontawesome-svg-core/styles.css",
-    "~/static/fonts/roboto.css"
+    "@fortawesome/fontawesome-svg-core/styles.css"
   ],
 
 
